@@ -3,9 +3,9 @@
 <body>
     <div class="formContainer">
         <p style="text-align: center;"><b>INSERISCI LE TUE CREDENZIALI!</b></p>
-        <form>
-            <input type="text" placeholder="username" required> <br>
-            <input type="text" placeholder="password" required>
+        <form (ngSubmit)="onSubmit()">
+            <input type="text" placeholder="username" required [(ngModel)]="loginForm.value.username"> <br>
+            <input type="text" placeholder="password" required [(ngModel)]="loginForm.value.password">
             <input type="submit" value="LOGIN">
         </form>
     </div>
