@@ -1,41 +1,5 @@
-body{
-    background-color: rgb(203, 17, 54);
-    width: 100%;
-    height: 80vh;
+.ticket-container {
+    width: 200px;
+    border: 1px, solid, black;
+    background-color: tomato;
 }
-div{
-    width: 45%;
-    height: 80vh;
-}
-section {
-    display: table;
-    background-color: blue;
-  }
-  
-  .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-  }
-  
-  .example-button-row {
-    display: table-cell;
-    max-width: 600px;
-  }
-  
-  .example-button-row .mat-mdc-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-  }

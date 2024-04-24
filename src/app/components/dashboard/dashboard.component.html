@@ -1,12 +1,27 @@
-<body>
-    <div id="div-padre">
-        <fieldset>
-            <legend>Tickets</legend>
-            <p>ticket.getNome() ticket.getStato() <a href="dddz"> </a></p>
+<div style="display: flex; gap: 5rem">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrizione</th>
+          <th>Manager</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>nome</td>
+          <td>desc</td>
+          <td>mann</td>
+          <td>astat</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-        </fieldset>
-
-
-        <button mat-flat-button color="primary">Primary</button>
-    </div>
-</body>
+  <div *ngIf="isManager">
+    <h1>ID EMPLOYEE : {{ employeeId }}</h1>
+    <button mat-raised-button color="primary">crea ticket</button>
+  </div>
+</div>

@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+   
+  ) {}
+  employeeId!: number;
+  isManager: boolean = true;
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.employeeId = params["employeeId"]
+    });
+
+    
+  }
+
+  
 
 }
