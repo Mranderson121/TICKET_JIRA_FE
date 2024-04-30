@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
   loginOnSubmit(): void {
     this.empService
       .loginEmployee({
-        email: "SKING", // cambiare con this.loginForm.value.email 
-        password: "5151234567", // cambiare con this.loginForm.value.password 
+        email: "NKOCHHAR", // cambiare con this.loginForm.value.email 
+        password: "5151234568", // cambiare con this.loginForm.value.password 
       })
       .subscribe({
         next: (employee: Employee) => {
           if (employee) {
             console.log(employee)
-            this.router.navigate(['/assegna'], {
+            this.router.navigate(['/dashboard'], {
               queryParams: { employeeId: employee.employeeId },
             });
           } else {

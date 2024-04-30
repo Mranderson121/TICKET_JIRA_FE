@@ -20,9 +20,9 @@
         </tbody>
       </table>
     </div>
-    <div *ngFor="let i of arrayFinto" style="display: flex">
+    <div *ngFor="let button of buttons" style="display: flex">
 
-        <button>{{ i }}</button>
+        <button>{{button.value+1}}</button>
 
     </div>
   </div>

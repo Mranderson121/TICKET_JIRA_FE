@@ -1,22 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Ticket } from '../interfaces/ticket';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // loginEmployee(body: { email: string; password: string }): Observable<Employee> {
-  //   return this.http.post<Employee>("http://localhost:8080/api/login", body);
-  // }
+  url = "http://localhost:8080/api/tickets/"
 
-  // getTicketByUserId() : Observable<Ticket[]> {
-  //     return this.http.get<Ticket[]>()
-  // }
-
-
-
-
+  getTicketByUserId(userId: number): Observable<number> {
+    return this.http.get<number>(this.url + userId)
+  }
 }
