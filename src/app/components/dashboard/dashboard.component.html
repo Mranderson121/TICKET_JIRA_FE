@@ -1,11 +1,12 @@
 <div style="display: flex; gap: 10rem">
   <div>
     <div>
-      <table class="table">
+      <table>
         <thead>
           <tr>
             <th>Nome</th>
             <th>Descrizione</th>
+            <th>Data Creazione</th>
             <th>Manager</th>
             <th>Stato</th>
           </tr>
@@ -14,6 +15,7 @@
           <tr>
             <td>{{ticket.taskName}}</td>
             <td>{{ticket.taskDesc}}</td>
+            <td> {{ticket.dataCreazione}} </td>
             <td>{{ticket.assegnatario.firstName}} {{ticket.assegnatario.lastName}} </td>
             <td>{{ticket.stato.stateName}}</td>
           </tr>

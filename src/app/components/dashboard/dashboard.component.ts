@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this.getNumberOfPages();
+    this.getPageTickets(1,5)
   }
 
   getNumberOfPages() {
