@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/interfaces/employee';
 
@@ -20,59 +12,37 @@ import { Employee } from 'src/app/interfaces/employee';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   failLoginMsg: boolean = false;
-  employeeTrovato!: Employee;
-  
 
   constructor(private router: Router, private empService: EmployeeService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required]),
     });
-
-
   }
 
+  loginOnSubmit(): void {
+    const { email, password } = this.loginForm.value;
 
+    if (this.loginForm.invalid) {
+      this.failLoginMsg = true;  
+      return;
+    }
 
-
-
-  // if (data != null) {
-  //   this.router.navigate(['/cliente'], {
-  //     queryParams: {
-  //       nome: this.clienteTrovato.nome,
-  //       clienteId: this.clienteTrovato.clienteId
-  //     },
-      
-  //   })
-  // } else {
-  //   this.failLoginMsg = true;
-  // }
-
-  loginOnSubmit() {
-    this.empService
-      .loginEmployee('http://localhost:8080/api/login', {
-        email: this.loginForm.value.email,
-        password: this.loginForm.value.password,
-      })
-      .subscribe({
-        next: (data: any) => {
-          this.employeeTrovato = data;
-          console.log(this.employeeTrovato);
-          if (data != null) {
-            this.router.navigate(['/dashboard'], {
-              queryParams: {
-                employeeId: this.employeeTrovato.id
-              }
-            })
-          } else {
-            this.failLoginMsg = true;
-          }
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      });
+    this.empService.loginEmployee({ email, password }).subscribe({
+      next: (employee: Employee) => {
+        if (employee) {
+          this.router.navigate(['/dashboard'], {
+            queryParams: { employeeId: employee.id }
+          });
+        } else {
+          this.failLoginMsg = true; 
+        }
+      },
+      error: (err:any) => {
+        console.log(err);
+      }
+    });
   }
 }
