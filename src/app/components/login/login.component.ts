@@ -25,15 +25,17 @@ export class LoginComponent implements OnInit {
   loginOnSubmit(): void {
     this.empService
       .loginEmployee({
-        email: "NKOCHHAR", // cambiare con this.loginForm.value.email 
-        password: "5151234568", // cambiare con this.loginForm.value.password 
+        email:  "ISCIARRA", // "NKOCHHAR", // cambiare con this.loginForm.value.email 
+        password: "5151244369" // "5151234568", // cambiare con this.loginForm.value.password 
       })
       .subscribe({
         next: (employee: Employee) => {
           if (employee) {
             console.log(employee)
             this.router.navigate(['/dashboard'], {
-              queryParams: { employeeId: employee.employeeId },
+              queryParams: { employeeId: employee.employeeId,
+                taskmanager: employee.taskmanager
+               },
             });
           } else {
             this.failLoginMsg = true;
