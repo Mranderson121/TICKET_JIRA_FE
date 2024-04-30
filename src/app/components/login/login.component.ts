@@ -12,7 +12,7 @@ import { Employee } from 'src/app/interfaces/employee';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   failLoginMsg: boolean = false;
-
+  
   constructor(private router: Router, private empService: EmployeeService) {}
 
   ngOnInit(): void {
@@ -23,26 +23,25 @@ export class LoginComponent implements OnInit {
   }
 
   loginOnSubmit(): void {
-    const { email, password } = this.loginForm.value;
-
-    if (this.loginForm.invalid) {
-      this.failLoginMsg = true;  
-      return;
-    }
-
-    this.empService.loginEmployee({ email, password }).subscribe({
-      next: (employee: Employee) => {
-        if (employee) {
-          this.router.navigate(['/dashboard'], {
-            queryParams: { employeeId: employee.id }
-          });
-        } else {
-          this.failLoginMsg = true; 
-        }
-      },
-      error: (err:any) => {
-        console.log(err);
-      }
-    });
+    this.empService
+      .loginEmployee({
+        email: "SKING", // cambiare con this.loginForm.value.email 
+        password: "5151234567", // cambiare con this.loginForm.value.password 
+      })
+      .subscribe({
+        next: (employee: Employee) => {
+          if (employee) {
+            console.log(employee)
+            this.router.navigate(['/dashboard'], {
+              queryParams: { employeeId: employee.employeeId },
+            });
+          } else {
+            this.failLoginMsg = true;
+          }
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
   }
 }

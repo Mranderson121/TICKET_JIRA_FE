@@ -7,21 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-   
-  ) {}
+  constructor(private route: ActivatedRoute) {}
+  
   employeeId!: number;
   isManager: boolean = true;
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.employeeId = params["employeeId"]
+      this.employeeId = params['employeeId'];
     });
-
-    
   }
-
-  
-
 }
