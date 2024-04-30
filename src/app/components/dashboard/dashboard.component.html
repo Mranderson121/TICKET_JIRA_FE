@@ -1,23 +1,30 @@
-<div style="display: flex; gap: 5rem">
+<div style="display: flex; gap: 10rem">
   <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Descrizione</th>
-          <th>Manager</th>
-          <th>Stato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>nome</td>
-          <td>desc</td>
-          <td>mann</td>
-          <td>astat</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrizione</th>
+            <th>Manager</th>
+            <th>Stato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>nome</td>
+            <td>desc</td>
+            <td>mann</td>
+            <td>astat</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngFor="let i of arrayFinto" style="display: flex">
+
+        <button>{{ i }}</button>
+
+    </div>
   </div>
 
   <div *ngIf="isManager">
