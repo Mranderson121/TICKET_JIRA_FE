@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+    <h2>FORM DI ASSEGNAZIONE NUOVO TICKET</h2>
+</div>
+
+<div>
+    <form>
+        <div>
+            <select>
+                <option value="">DIPENDENTE A CUI ASSEGNARLO</option>
+                <option *ngFor="let emp of employees" [value]="emp.employeeId">{{emp.firstName}} {{emp.lastName}}</option>
+            </select>
+        </div>
+    </form>
+</div>
+
