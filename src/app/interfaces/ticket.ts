@@ -1,7 +1,9 @@
-export interface Ticket{
-id:number
-descrizione:string
-stato:string
-commento:string
+import { Employee } from "./employee"
+import { Stato } from "./stato"
 
+export interface Ticket{
+    taskName: string
+    taskDesc: string
+    assegnatario: Employee
+    stato: Stato
 }

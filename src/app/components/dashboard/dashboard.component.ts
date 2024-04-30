@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Button } from 'src/app/interfaces/button';
+import { Ticket } from 'src/app/interfaces/ticket';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   buttons!: Button[];
   num!: number;
   button!: Button;
+  tickets!: Ticket[]
 
   ngOnInit(): void {
     this.buttons = [];
@@ -61,6 +63,7 @@ export class DashboardComponent implements OnInit {
     }).subscribe({
       next : (data: any) => {
         console.log(data)
+        this.tickets = data
         
       },
       error: (err:any) => {
