@@ -21,12 +21,12 @@
       </table>
     </div>
 
-    <div *ngFor="let button of buttons" style="display: flex">
+    <div *ngFor="let button of buttons" style="display: flex;">
 
-        <button>{{button.value+1}}</button>
+        <button (click)="getPageTickets(button.min, button.max)">{{button.value+1}}</button>
 
     </div>
-    
+
   </div>
 
   <div *ngIf="taskmanager === 1">
