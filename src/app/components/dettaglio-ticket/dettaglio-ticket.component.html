@@ -14,7 +14,15 @@
 </ul>
 
 
-<p>  </p>
+<ul *ngFor="let c of commenti">
+    <li> {{c.descrizione}} , {{c.data}}</li>
+</ul>
+
+
+<select name="stati" id="stati" >
+    <option *ngFor="let s of statiSenzaNuovo"  value="{{s.stateId}}"> {{s.stateName}} </option>
+  </select>
+
 
 <button>UPDATE</button>
 

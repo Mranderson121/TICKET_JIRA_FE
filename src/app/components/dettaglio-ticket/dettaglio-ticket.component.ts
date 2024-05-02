@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Commento } from 'src/app/interfaces/commento';
+import { Stato } from 'src/app/interfaces/stato';
 import { Storico } from 'src/app/interfaces/storico';
 import { Ticket } from 'src/app/interfaces/ticket';
 import { CommentoService } from 'src/app/services/commento.service';
+import { StatoService } from 'src/app/services/stato.service';
 import { StoricoService } from 'src/app/services/storico.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
@@ -17,12 +19,13 @@ export class DettaglioTicketComponent implements OnInit {
   ticket!: Ticket;
   storico!: Storico[];
   commenti!: Commento[];
+  statiSenzaNuovo!:Stato[];
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private ticketService: TicketService,
     private storicoService: StoricoService,
+    private statoService : StatoService,
     private commentoService: CommentoService
   ) {}
 
@@ -31,7 +34,7 @@ export class DettaglioTicketComponent implements OnInit {
       this.idTicket = params['idTicket'];
     });
 
-
+    this.getAllStati();
     this.getTicketById(this.idTicket);
     this.getStoricoTaskByIdTask(this.idTicket);
     
@@ -51,7 +54,7 @@ export class DettaglioTicketComponent implements OnInit {
     this.ticketService.getTicketById(idTicket).subscribe({
       next: (data: Ticket) => {
         this.ticket = data;
-        console.log(data)
+
       },
       error: (err: any) => {
         console.log(err);
@@ -71,6 +74,16 @@ export class DettaglioTicketComponent implements OnInit {
 
   }
   
+  getAllStati(){
+    this.statoService.getAllStati().subscribe({
+      next : (data:Stato[]) => {
+        this.statiSenzaNuovo = data.filter(e =>  e.stateName != "nuovo")
+      },
+      error : (err : any ) => {
+        console.log(err)
+      }
+    })
+  }
  
 
 }

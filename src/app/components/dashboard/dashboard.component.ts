@@ -66,7 +66,6 @@ export class DashboardComponent implements OnInit {
       })
       .subscribe({
         next: (data: any) => {
-          console.log(data);
           this.tickets = data;
         },
         error: (err: any) => {
