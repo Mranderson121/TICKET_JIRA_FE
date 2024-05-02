@@ -1,43 +1,29 @@
 <h2>TICKET MANAGER</h2>
 
-<!-- <body>
+<body>
   <div class="formContainer">
-    <p style="text-align: center"><b>INSERISCI LE TUE CREDENZIALI!</b></p>
-    <form (ngSubmit)="onSubmit()">
-      <input type="text" placeholder="username"  /> <br />
-      <input type="text" placeholder="password"  />
-  
-    </form>
-  </div>
-</body> -->
-
-
-<div class="formContainer">
     <form [formGroup]="loginForm" (ngSubmit)="loginOnSubmit()">
-      <p>LOGIN FORM</p>
-      <mat-form-field >
+      <div>
+        <p>INSERISCI LE TUE CREDENZIALI</p>
+      </div>
+      
+      <mat-form-field>
         <mat-label>Email</mat-label>
         <input type="text" name="email" formControlName="email" matInput />
       </mat-form-field>
-  
-      <mat-form-field >
-        <mat-label >Password</mat-label>
-        <input
-          type="password"
-          name="password"
-          formControlName="password"
-          matInput
-          
-        />
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" name="password" formControlName="password" matInput />
       </mat-form-field>
       <br>
-  
-      <button [disabled]="" mat-raised-button color="primary" >LOGIN</button>
+
+      <button [disabled]="" mat-raised-button color="primary">LOGIN</button>
     </form>
-  
+
     <div class="signUp-message-failed" *ngIf="failLoginMsg">
       <p>Username o password errate</p>
     </div>
 
-</div>
-  
+  </div>
+</body>

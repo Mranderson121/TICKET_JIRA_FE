@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Storico } from 'src/app/interfaces/storico';
 import { Ticket } from 'src/app/interfaces/ticket';
+import { StoricoService } from 'src/app/services/storico.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -15,7 +17,8 @@ export class DettaglioTicketComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private ticketService: TicketService
+    private ticketService: TicketService,
+    private storicoService:StoricoService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +28,18 @@ export class DettaglioTicketComponent implements OnInit {
 
 
     this.getTicketById(this.idTicket);
+    this.getStoricoTaskByIdTask(this.idTicket);
     
+  }
+  
+  getStoricoTaskByIdTask(ticketId:number){
+    this.storicoService.getStoricoTaskByIdTask(ticketId).subscribe({
+      next: (data:Storico[])=>{
+        console.log(data)
+      }, error: (err: any) => {
+        console.log(err);
+      },
+    })
   }
 
   getTicketById(idTicket:number) {
