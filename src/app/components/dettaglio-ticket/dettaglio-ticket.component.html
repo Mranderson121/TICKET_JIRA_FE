@@ -1,30 +1,33 @@
-<p>
-    nome task: {{ticket.taskName}}
-</p>
-<p>
-   descrizione:  {{ticket.taskDesc}}
-</p>
+<body>
+    <form>
+        <p>
+            nome task: {{ticket.taskName}}
+        </p>
+        <p>
+            descrizione: {{ticket.taskDesc}}
+        </p>
 
 
 
-<p> stato attuale:  {{ ticket.stato.stateName}}</p>
+        <p> stato attuale: {{ ticket.stato.stateName}}</p>
 
-<ul *ngFor="let s of storico">
-    <li> {{s.stato.stateName}}, {{s.dataModifica}} </li>
-</ul>
-
-
-<ul *ngFor="let c of commenti">
-    <li> {{c.descrizione}} , {{c.data}}</li>
-</ul>
+        <ul *ngFor="let s of storico">
+            <li> {{s.stato.stateName}}, {{s.dataModifica}} </li>
+        </ul>
 
 
-<select name="stati" id="stati" >
-    <option *ngFor="let s of statiSenzaNuovo"  value="{{s.stateId}}"> {{s.stateName}} </option>
-  </select>
+        <ul *ngFor="let c of commenti">
+            <li> {{c.descrizione}} , {{c.data}}</li>
+        </ul>
 
 
-<button>UPDATE</button>
+        <select name="stati" id="stati">
+            <option *ngFor="let s of statiSenzaNuovo" value="{{s.stateId}}"> {{s.stateName}} </option>
+        </select>
 
 
+        <button (click)="updateTicket()">UPDATE</button>
+    </form>
 
+    <p *ngIf="clicked"> <img style="width: 278px; margin-top: 14px;" src="../../../assets/crimson.jpg"> </p>
+</body>

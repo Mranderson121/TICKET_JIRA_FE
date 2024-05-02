@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../interfaces/ticket';
+import { Stato } from '../interfaces/stato';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +24,7 @@ export class TicketService {
     return this.http.get<Ticket>(this.url + "ticket/singolo/" + ticketId)
   }
 
- 
-
-
-
+  updateTicket(body: {ticketId: number, newDesk: string, newState: Stato}): Observable<Ticket> {
+    return this.http.put<any>(this.url + "ticket", body)
+  }
 }

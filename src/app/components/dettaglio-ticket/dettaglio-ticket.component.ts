@@ -20,6 +20,8 @@ export class DettaglioTicketComponent implements OnInit {
   storico!: Storico[];
   commenti!: Commento[];
   statiSenzaNuovo!:Stato[];
+  clicked!: boolean
+  cont = 0
 
   constructor(
     private route: ActivatedRoute,
@@ -85,5 +87,13 @@ export class DettaglioTicketComponent implements OnInit {
     })
   }
  
-
+  updateTicket() {
+    this.cont += 1
+    if (this.cont%2 != 0) {
+      this.clicked = true
+    } else {
+      this.clicked = false
+    }
+  //  this.ticketService.updateTicket().subscribe() da finire
+  }
 }
