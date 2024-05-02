@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         next: (employee: Employee) => {
           if (employee) {
             console.log(employee)
-            this.router.navigate(['/assegna'], {
+            this.router.navigate(['/dashboard'], {
               queryParams: { employeeId: employee.employeeId,
                 taskmanager: employee.taskmanager
                },
