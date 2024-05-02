@@ -14,14 +14,24 @@ h2 {
     color: crimson;
 }
 
+p {
+    font-weight: bold;
+    align-items: center;
+    color: crimson;
+    justify-content: center;
+}
+
 .formContainer {
     width: 350px;
     background-color: white;
     padding: 30px;
     border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
-.formContainer input[type="submit"] {
+.formContainer button {
     margin-top: 10px;
     width: 100%;
     padding: 10px;
@@ -32,9 +42,16 @@ h2 {
     cursor: pointer;
 }
 
-.formContainer input[type="text"],
-.formContainer input[type="password"] {
-    width: 95%;
+/* Stile per input all'interno di mat-form-field */
+.formContainer mat-form-field input {
+    width: 100%;
     padding: 5px;
-    display: flex;
+    box-sizing: border-box; /* Assicura che il padding non aggiunga dimensioni aggiuntive */
+}
+
+/* Stile per il messaggio di errore */
+.formContainer .signUp-message-failed {
+    margin-top: 10px;
+    color: red;
+    text-align: center;
 }
