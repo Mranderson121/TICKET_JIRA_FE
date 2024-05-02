@@ -3,10 +3,7 @@
 <body>
   <div class="formContainer">
     <form [formGroup]="loginForm" (ngSubmit)="loginOnSubmit()">
-      <div>
-        <p>INSERISCI LE TUE CREDENZIALI</p>
-      </div>
-      
+      <p>INSERISCI LE TUE CREDENZIALI</p>
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input type="text" name="email" formControlName="email" matInput />
