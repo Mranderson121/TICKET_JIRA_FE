@@ -9,6 +9,7 @@
             <th>Data Creazione</th>
             <th>Manager</th>
             <th>Stato</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody *ngFor="let ticket of tickets">
@@ -18,6 +19,7 @@
             <td> {{ticket.dataCreazione}} </td>
             <td>{{ticket.assegnatario.firstName}} {{ticket.assegnatario.lastName}} </td>
             <td>{{ticket.stato.stateName}}</td>
+            <td><button (click)="goToDettaglioTicket(ticket.taskId)">Dettagli </button></td>
           </tr>
         </tbody>
       </table>

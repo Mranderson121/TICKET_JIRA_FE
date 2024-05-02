@@ -19,9 +19,11 @@ export class TicketService {
     return this.http.post<Ticket[]>(this.url + "ticket/ricerca", body);
   }
 
-  // loginEmployee(body: { email: string; password: string }): Observable<Employee> {
-  //   return this.http.post<Employee>("http://localhost:8080/api/login", body);
-  // }
+  getTicketById(ticketId:number) : Observable<Ticket> {
+    return this.http.get<Ticket>(this.url + "ticket/singolo/" + ticketId)
+  }
+
+ 
 
 
 

@@ -15,13 +15,16 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { TicketAssignerComponent } from './components/ticket-assigner/ticket-assigner.component';
 import { FormsModule } from '@angular/forms';
+import { DettaglioTicketComponent } from './components/dettaglio-ticket/dettaglio-ticket.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    TicketAssignerComponent
+    TicketAssignerComponent,
+    DettaglioTicketComponent
   ],
   imports: [
     BrowserModule,

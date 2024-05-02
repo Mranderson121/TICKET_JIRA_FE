@@ -80,4 +80,11 @@ export class DashboardComponent implements OnInit {
       queryParams: { employeeId: this.employeeId },
     });
   }
+
+  goToDettaglioTicket(idTicket:number) {
+    this.router.navigate(['/dettaglio-ticket'], {
+      queryParams: {idTicket: idTicket}
+    })
+  }
+  
 }
