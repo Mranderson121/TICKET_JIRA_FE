@@ -5,11 +5,24 @@
 <div>
     <form>
         <div>
-            <select>
+            NOME TASK: <input type="text" name="taskName" [(ngModel)]="taskName">
+        </div>
+        <div>
+            DESCRIZIONE TASK: <input type="text" name="taskDesc" [(ngModel)]="taskDesc">
+        </div>
+        <div>
+            <select #empSelected>
                 <option value="">DIPENDENTE A CUI ASSEGNARLO</option>
-                <option *ngFor="let emp of employees" [value]="emp.employeeId">{{emp.firstName}} {{emp.lastName}}</option>
+                <option *ngFor="let emp of employees" [value]="emp.employeeId">{{emp.firstName}} {{emp.lastName}}
+                </option>
             </select>
         </div>
+        <div>
+            <button type="submit" (click)="submitButtonClicked(empSelected)">ASSEGNA</button>
+        </div>
     </form>
+    <div>
+        <p style="color: green;" *ngIf="status === 'okay'"><b>INSERIMENTO EFFETTUATO CORRETTAMENTE</b></p>
+        <p style="color: red;" *ngIf="status === 'error'"><b>OPS QUALCOSA E' ANDATO STORTO</b></p>
+    </div>
 </div>
-

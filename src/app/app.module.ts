@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { TicketAssignerComponent } from './components/ticket-assigner/ticket-assigner.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TicketAssignerComponent } from './components/ticket-assigner/ticket-ass
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
