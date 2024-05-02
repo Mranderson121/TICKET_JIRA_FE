@@ -5,13 +5,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TicketAssignerComponent } from './components/ticket-assigner/ticket-assigner.component';
 
 const routes: Routes = [
-  {path:'', component: LoginComponent},
-  {path:'dashboard', component:DashboardComponent},
-  {path: 'assegna', component:TicketAssignerComponent}
+  { path: '', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [{ path: 'assegna', component: TicketAssignerComponent }],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

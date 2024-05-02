@@ -31,9 +31,11 @@
 
   </div>
 
-  <div *ngIf="taskmanager === 1">
-    <h1>ID EMPLOYEE : {{ employeeId }}</h1>
-    <button mat-raised-button color="primary">crea ticket</button>
+  <div *ngIf="taskmanager == 0">
+    <h1>ID EMPLOYEE : {{ employeeId }} </h1>
+    <button (click)="goToAssegna()" mat-raised-button color="primary">crea ticket</button>
   </div>
+
+  <router-outlet></router-outlet>
 </div>
 

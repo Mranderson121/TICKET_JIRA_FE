@@ -27,6 +27,7 @@ export class TicketAssignerComponent implements OnInit {
     this.route.queryParams.subscribe((params)=> {
       this.idAssegnatario = params['employeeId']
     })
+    
   }
 
   constructor(private service: TicketAsignerService, private route: ActivatedRoute) { }
@@ -34,7 +35,7 @@ export class TicketAssignerComponent implements OnInit {
   getAllEmployees() {
     this.service.getAllEmployees(this.employeesUrl).subscribe(data => {
       this.employees = data
-      console.log(this.employees)
+      
     })
   }
 
