@@ -1,3 +1,21 @@
 form > div {
     margin-bottom: 10px;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button, input[type="text"], input[type="password"] {
+    margin-top: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: white;
+    color: crimson;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

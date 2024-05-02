@@ -27,17 +27,16 @@
         </table>
       </div>
 
-      <div *ngFor="let button of buttons" style="display: flex;">
+      <div style="display: inline;" *ngFor="let button of buttons">
 
-        <button (click)="getPageTickets(button.min, button.max)">{{button.value+1}}</button>
+        <button style="border-radius: 100px;" (click)="getPageTickets(button.min, button.max)">{{button.value+1}}</button>
 
       </div>
 
     </div>
 
     <div *ngIf="taskmanager == 0">
-      <h1>ID EMPLOYEE : {{ employeeId }} </h1>
-      <button (click)="goToAssegna()" mat-raised-button color="primary">crea ticket</button>
+      <button class="assegnaButton" (click)="goToAssegna()">PREMI QUI PER ASSEGNARE UN TICKET</button>
     </div>
 
     <router-outlet></router-outlet>
