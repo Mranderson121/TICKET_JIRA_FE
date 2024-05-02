@@ -9,10 +9,14 @@
 
 <p> stato attuale:  {{ ticket.stato.stateName}}</p>
 
-<p>STORICO</p> 
+<ul *ngFor="let s of storico">
+    <li> {{s.stato.stateName}}, {{s.dataModifica}} </li>
+</ul>
 
 
-<p>COMMENTI</p>
+<p>  </p>
+
+<button>UPDATE</button>
 
 
 

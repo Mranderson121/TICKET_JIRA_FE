@@ -1,17 +1,5 @@
-/* body{
+body{
     background-color: crimson;
-} */
-
-body {
-    font-family: Arial, sans-serif;
-    background-image: url('img/sfondo.jpeg'); /* Imposta l'immagine di sfondo */
-    background-size: cover; /* Fai sì che l'immagine di sfondo copra l'intero body */
-    background-position: center; /* Centra l'immagine di sfondo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0; /* Rimuove il margine predefinito del body */
 }
 
 

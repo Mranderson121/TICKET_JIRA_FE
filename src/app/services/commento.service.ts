@@ -14,7 +14,7 @@ export class CommentoService {
 
   getCommentiByTaskId(ticketId:number):Observable<Commento[]>{
     return this.http.get<Commento[]>(this.url + "commento/" + ticketId )
-
+    
   }
 
 
