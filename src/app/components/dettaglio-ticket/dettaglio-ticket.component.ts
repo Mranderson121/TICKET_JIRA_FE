@@ -94,6 +94,7 @@ export class DettaglioTicketComponent implements OnInit {
     newStateId: newState.value as unknown as number
   }).subscribe(
     (response) => {
+
       this.status = "okay"
     },
     (error) => {

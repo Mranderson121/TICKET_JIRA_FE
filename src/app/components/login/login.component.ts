@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
     this.empService
       .loginEmployee({
         email: 
-        "NKOCHHAR", 
-        //"ISCIARRA",  
-        // cambiare con this.loginForm.value.email 
+        // "NKOCHHAR", 
+        // "ISCIARRA",  
+        this.loginForm.value.email ,
         password:
-        "5151234568", 
-        //"5151244369"  
-        // cambiare con this.loginForm.value.password 
+        // "5151234568", 
+        // "5151244369"  
+        this.loginForm.value.password 
       })
       .subscribe({
         next: (employee: Employee) => {
