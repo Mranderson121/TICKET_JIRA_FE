@@ -24,7 +24,7 @@ export class TicketService {
     return this.http.get<Ticket>(this.url + "ticket/singolo/" + ticketId)
   }
 
-  updateTicket(body: {ticketId: number, newDesk: string, newState: Stato}): Observable<Ticket> {
+  updateTicket(body: {id: number, newDesc: string, newStateId: number}): Observable<Ticket> {
     return this.http.put<any>(this.url + "ticket", body)
   }
 }

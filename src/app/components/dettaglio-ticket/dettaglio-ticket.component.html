@@ -7,7 +7,7 @@
             descrizione: {{ticket.taskDesc}}
         </p>
 
-
+        nuova descrizione: <input type="text" #newDesc>
 
         <p> stato attuale: {{ ticket.stato.stateName}}</p>
 
@@ -21,13 +21,13 @@
         </ul>
 
 
-        <select name="stati" id="stati">
-            <option *ngFor="let s of statiSenzaNuovo" value="{{s.stateId}}"> {{s.stateName}} </option>
+        <select name="stati" id="stati" #selectedState>
+            <option *ngFor="let s of statiSenzaNuovo" value="{{s.stateId}}" > {{s.stateName}} </option>
         </select>
 
 
-        <button (click)="updateTicket()">UPDATE</button>
+        <button (click)="updateTicket(ticket.taskId, newDesc, selectedState )">UPDATE</button>
     </form>
 
-    <p *ngIf="clicked"> <img style="width: 278px; margin-top: 14px;" src="../../../assets/crimson.jpg"> </p>
+    <p *ngIf="status === 'okay'"> <img style="width: 278px; margin-top: 14px;" src="../../../assets/crimson.jpg"> </p>
 </body>

@@ -20,8 +20,7 @@ export class DettaglioTicketComponent implements OnInit {
   storico!: Storico[];
   commenti!: Commento[];
   statiSenzaNuovo!:Stato[];
-  clicked!: boolean
-  cont = 0
+  status!: string
 
   constructor(
     private route: ActivatedRoute,
@@ -87,13 +86,19 @@ export class DettaglioTicketComponent implements OnInit {
     })
   }
  
-  updateTicket() {
-    this.cont += 1
-    if (this.cont%2 != 0) {
-      this.clicked = true
-    } else {
-      this.clicked = false
+  updateTicket(id: number, newDesc: HTMLInputElement, newState: HTMLSelectElement) {
+    console.log(newState.value as unknown as number)
+  this.ticketService.updateTicket({
+    id: id,
+    newDesc: newDesc.value,
+    newStateId: newState.value as unknown as number
+  }).subscribe(
+    (response) => {
+      this.status = "okay"
+    },
+    (error) => {
+      this.status = "error"
     }
-  //  this.ticketService.updateTicket().subscribe() da finire
+  )
   }
 }
